@@ -26,7 +26,7 @@ body {
 section {
     padding: 3rem 2rem;
     margin: 0 auto;
-    max-width: 1500px;
+    max-width: 1200px;
 }
 
 /* ================= HEADER ================= */
@@ -69,6 +69,7 @@ section {
 }
 
 .icons img {
+    width: 30px;
     cursor: pointer;
 }
 
@@ -76,14 +77,16 @@ section {
     transform: scale(1.1);
 }
 
+/* ================= BOTÃO ================= */
+
 .btn {
     background: var(--btn-bg);
     color: var(--white);
     padding: 1rem 3rem;
     font-size: 1.8rem;
-    cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: inline-block;
+    border-radius: 5px;
 }
 
 .btn:hover {
@@ -93,16 +96,14 @@ section {
 /* ================= HOME ================= */
 
 .home-container {
-    background: url("./img/home.png");
-    background-position: center;
-    background-size: cover;
+    background: url("./img/home.png") center/cover no-repeat;
 }
 
 .home-container section {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    padding-top: 10rem;
+    padding-top: 9rem;
 }
 
 .content {
@@ -110,21 +111,22 @@ section {
 }
 
 .content h3 {
-    color: #fff;
+    color: var(--white);
     font-size: 6rem;
+    line-height: 1.2;
 }
 
 .content p {
     color: var(--white);
-    font-size: 2rem;
-    line-height: 1.8;
-    padding: 1rem 0rem;
+    font-size: 2.5rem;
+    line-height: 1.6;
+    margin-top: 1rem;
 }
 
 /* ================= ABOUT ================= */
 
 .title {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--main-color);
     text-align: center;
     margin-bottom: 2rem;
@@ -137,96 +139,111 @@ section {
 .about .row {
     display: flex;
     align-items: center;
+    gap: 2rem;
     background-color: var(--black);
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.about .row .container-image {
-    flex: 1 1 45rem;
+.container-image {
+    flex: 1;
 }
 
-.about .row .container-image img {
+.container-image img {
     width: 100%;
-    height: auto; /* NÃO CORTA */
+    height: auto;
     display: block;
 }
 
-.about .row .content {
-    flex: 1 1 45rem;
+.about .content {
+    flex: 1;
     padding: 2rem;
 }
 
-.about .row .content h3 {
-    font-size: 4rem;
+.about .content h3 {
+    font-size: 2.6rem;
     color: var(--white);
 }
 
-.about .row .content p {
-    font-size: 2rem;
+.about .content p {
+    font-size: 1.8rem;
     color: var(--white);
-    padding: 1rem 0;
-    line-height: 1.8;
+    line-height: 1.6;
+    margin-top: 1rem;
 }
 
-/* ================= RESPONSIVO ================= */
+/* ================= RESPONSIVO MOBILE ================= */
 
 @media (max-width: 768px) {
 
-    html {
-        font-size: 8px;
-    }
+    /* HEADER */
 
-    /* HEADER continua horizontal */
     .header section {
-        flex-direction: row;
-        justify-content: space-between;
+        padding: 1rem 1.5rem;
     }
 
     .logo img {
-        width: 20px;
+        width: 90px;
     }
 
     .navbar {
-        flex-direction: row; /* continua lado a lado */
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .navbar a {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+    }
+
+    .icons img {
+        width: 24px;
     }
 
     /* HOME */
-    .home-container {
-        background-position: top center; /* mostra mais da imagem */
-        background-size: contain; /* não corta a imagem */
-        background-repeat: no-repeat;
-        background-color: var(--black); /* evita fundo branco */
-    }
 
     .home-container section {
-        min-height: 70vh; /* reduz altura no celular */
-        justify-content: center;
+        padding-top: 8rem;
         text-align: center;
+        justify-content: center;
+    }
+
+    .content {
+        padding: 0 1rem;
     }
 
     .content h3 {
-        font-size: 2.5rem;
-        padding-bottom: 3rem;
+        font-size: 2.8rem;
     }
 
     .content p {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1.6rem;
+        padding: 1rem 2.5rem;
     }
 
     /* ABOUT */
+
+    .title {
+        font-size: 2.8rem;
+    }
+
     .about .row {
         flex-direction: column;
     }
 
-    .about .row .container-image img {
-        width: 100%;
-        height: auto;
+    .about .content {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .about .content h3 {
+        font-size: 2.2rem;
+    }
+
+    .about .content p {
+        font-size: 1.5rem;
     }
 
 }
