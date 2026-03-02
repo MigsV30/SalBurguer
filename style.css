@@ -16,6 +16,7 @@
     text-transform: capitalize;
     transition: 0.2s linear;
     font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -27,6 +28,8 @@ section {
     margin: 0 auto;
     max-width: 1500px;
 }
+
+/* ================= HEADER ================= */
 
 .header {
     position: fixed;
@@ -42,12 +45,19 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 2rem;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.navbar {
+    display: flex;
+    gap: 2rem;
 }
 
 .navbar a {
-    margin: 0 1rem;
     font-size: 1.8rem;
     color: var(--white);
 }
@@ -56,11 +66,6 @@ section {
     color: var(--main-color);
     border-bottom: 0.2rem solid var(--main-color);
     padding-bottom: 0.3rem;
-    font-size: 2rem;
-}
-
-.navbar a:active {
-    font-size: 1.75rem;
 }
 
 .icons img {
@@ -68,13 +73,7 @@ section {
 }
 
 .icons img:hover {
-    width: 35px;
-    height: 35px;
-}
-
-.icons img:active {
-    width: 28px;
-    height: 28px;
+    transform: scale(1.1);
 }
 
 .btn {
@@ -91,6 +90,8 @@ section {
     letter-spacing: 0.1rem;
 }
 
+/* ================= HOME ================= */
+
 .home-container {
     background: url("./img/home.png");
     background-position: center;
@@ -101,6 +102,7 @@ section {
     display: flex;
     align-items: center;
     min-height: 100vh;
+    padding-top: 10rem;
 }
 
 .content {
@@ -119,17 +121,17 @@ section {
     padding: 1rem 0rem;
 }
 
-.title{
+/* ================= ABOUT ================= */
+
+.title {
     font-size: 4rem;
     color: var(--main-color);
     text-align: center;
-    text-transform: uppercase;
     margin-bottom: 2rem;
 }
 
 .title span {
     color: var(--white);
-    text-transform: uppercase;
 }
 
 .about .row {
@@ -137,9 +139,21 @@ section {
     align-items: center;
     background-color: var(--black);
     gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.about .row .container-image {
+    flex: 1 1 45rem;
+}
+
+.about .row .container-image img {
+    width: 100%;
+    height: auto; /* NÃO CORTA */
+    display: block;
 }
 
 .about .row .content {
+    flex: 1 1 45rem;
     padding: 2rem;
 }
 
@@ -153,4 +167,66 @@ section {
     color: var(--white);
     padding: 1rem 0;
     line-height: 1.8;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 8px;
+    }
+
+    /* HEADER continua horizontal */
+    .header section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        width: 20px;
+    }
+
+    .navbar {
+        flex-direction: row; /* continua lado a lado */
+        gap: 1.5rem;
+    }
+
+    .navbar a {
+        font-size: 1.6rem;
+    }
+
+    /* HOME */
+    .home-container {
+        background-position: top center; /* mostra mais da imagem */
+        background-size: contain; /* não corta a imagem */
+        background-repeat: no-repeat;
+        background-color: var(--black); /* evita fundo branco */
+    }
+
+    .home-container section {
+        min-height: 70vh; /* reduz altura no celular */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .content h3 {
+        font-size: 2.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .content p {
+        font-size: 1.8rem;
+    }
+
+    /* ABOUT */
+    .about .row {
+        flex-direction: column;
+    }
+
+    .about .row .container-image img {
+        width: 100%;
+        height: auto;
+    }
+
 }
